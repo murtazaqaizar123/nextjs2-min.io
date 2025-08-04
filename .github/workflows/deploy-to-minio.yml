@@ -22,14 +22,13 @@ jobs:
         run: |
           npm install
           npm run build
-          npm run export  # only if you're using `next export`
+          npm run export  # Only needed if you're using `next export`
 
-          - name: Install AWS CLI
-          run: |
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            unzip awscliv2.zip
-            sudo ./aws/install
-        
+      - name: Install AWS CLI
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
 
       - name: Upload build to MinIO using AWS CLI
         env:
